@@ -1,0 +1,125 @@
+---
+test-cases:
+- summary: |
+    Проверка возможности искать товары по ключевому слову или категории
+  status: pass
+
+- summary: |
+    Проверка возможности фильтровать товары
+  status: pass
+
+- summary: |
+    Проверка возможности просматривать подробную информацию о товаре
+  status: pass
+
+- summary: |
+    Проверка возможности добавлять товары в корзину и просматривать содержимое корзины
+  status: pass
+
+- summary: |
+    Проверка сайта на адаптивность под мобильные устройства
+  status: pass
+
+- summary: |
+    Проверка сайта на доступность на различных устройствах
+  status: pass
+
+- summary: |
+    Проверка поддержки различных языков
+  status: pass
+
+bugreports:
+  - summary: |
+      Не работает поиск по категории
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. Нажать в левой панели на поисковую строку
+      3. Ввести любую существующую категорию на сайте
+    expected-result: |
+      На странице отобразятся товары из вписанной категории
+    actual-result: |
+      На странице отобразятся все товары
+    
+  - summary: |
+      Некорректное отображение кнопки "Add to card"
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    expected-result: |
+      Все кнопки "Add to card" имеют одинаковый вид 
+    actual-result: |
+      У некоторых карточек товара, кнопка "Add to card" отличается
+
+  - summary: |
+      Не отображается иконка английского языка
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. В шапке сайта нажать на "Language"
+    expected-result: |
+      У каждого языка корректно отображается иконка
+    actual-result: |
+      Иконки вообще пропали + исчезло свойство cursor:pointer с элементов списка
+
+  - summary: |
+      Не работает логика скрытия выпадающего списка
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. Нажать на любой выпадающий список "Language" или "Category"
+      3. Нажать в любом месте на сайте, кроме поля с выпадающим списком
+    expected-result: |
+      Выпадающий список скрывается
+    actual-result: |
+      Выпадающий список не скрывается
+
+  - summary: |
+      Присутствует возможность вводить отрицательное значение в полях с диапозоном цен
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. Нажать в левой панели на любое поле в фильтре "Price"
+      3. Попытаться вставить знак минус
+    expected-result: |
+      Знак минус не вставляется в поле
+    actual-result: |
+      Знак минус вставляется в поле
+
+  - summary: |
+      Нет возможности отправить запрос на оформление заказа на сервер
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2 DevTools
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Перейти в корзину и нажать "Checkout"
+    expected-result: |
+      Запрос на оформление товара отправится на сервер
+    actual-result: |
+      Запрос не оформляется с ошибкой failed status 500
+
+  - summary: |
+      Нельзя закрыть окно с сообщением "Order placed successfully"
+    environment: |
+      Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+      ОС Windows 22H2 DevTools
+    steps-to-reproduce: |
+      1. Зайти на страницу https://hexlet-products-store.vercel.app/
+      2. Добавить любой товар в корзину
+      3. Перейти в корзину и нажать "Checkout"
+    expected-result: |
+      Высветившееся окно можно закрыть через крестик в правом верхнем углу
+    actual-result: |
+      Высветившееся окно нельзя закрыть через крестик в правом верхнем углу
