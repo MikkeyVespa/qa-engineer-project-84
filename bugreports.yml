@@ -1,0 +1,148 @@
+---
+- summary: |
+    Не работает поиск по категории
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Нажать в левой панели на поисковую строку
+    3. Ввести любую существующую категорию на сайте
+  expected-result: |
+    На странице отобразятся товары из вписанной категории
+  actual-result: |
+    На странице отобразится "Nothing found"
+
+- summary: |
+    Не кликабельный логотип сайта
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В шапке сайта нажать на логотип
+  expected-result: |
+    Загрузится стартовая страница сайта
+  actual-result: |
+    Логотип не кликабельный
+    
+- summary: |
+    Некорректное отображение кнопки "Add to card"
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+  expected-result: |
+    Все кнопки "Add to card" имеют одинаковый вид 
+  actual-result: |
+    У некоторых карточек товара, кнопка "Add to card" отличается
+
+- summary: |
+    Не отображается иконка английского языка
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В шапке сайта нажать на "Language"
+  expected-result: |
+    У каждого языка корректно отображается иконка
+  actual-result: |
+    Иконка английского языка не отображается
+
+- summary: |
+    Не работает логика скрытия выпадающего списка
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Нажать на любой выпадающий список "Language" или "Category"
+    3. Нажать в любом месте на сайте, кроме поля с выпадающим списком
+  expected-result: |
+    Выпадающий список скрывается
+  actual-result: |
+    Выпадающий список не скрывается
+
+- summary: |
+    Присутствует возможность вводить отрицательное значение в полях с диапозоном цен
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Нажать в левой панели на любое поле в фильтре "Price"
+    3. Попытаться вставить знак минус
+  expected-result: |
+    Знак минус не вставляется в поле
+  actual-result: |
+    Знак минус вставляется в поле
+
+- summary: |
+    Нельзя просмотреть фотографии в карточках товаров
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Зайти в любую карточку товаров
+    3. Попытаться просмотреть галерею фотографий товара
+  expected-result: |
+    Фотография приблизится и можно пролистать фотографии товара
+  actual-result: |
+    Фотографии галереи товара не кликабельные
+
+- summary: |
+    Фотографии многих карточек не адаптированы под мобильные устройства
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2 DevTools
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Открыть DevTools и посмотреть отображение сайта в разных разрешениях
+  expected-result: |
+    Все фотографии товаров отображаются корректно
+  actual-result: |
+    Фотографии многих карточек растягиваются и выглядят непрезентабельно
+
+- summary: |
+    Нет возможности убрать фильтр "Категория" без перезагрузки страницы
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2 DevTools
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. В левой панели выбрать любую категорию
+  expected-result: |
+    Есть возможность убрать фильтр "Категория"
+  actual-result: |
+    Нет возможности убрать фильтр "Категория" без перезагрузки страницы
+
+- summary: |
+    Нет возможности отправить запрос на оформление заказа на сервер
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2 DevTools
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Перейти в корзину и нажать "Checkout"
+  expected-result: |
+    Запрос на оформление товара отправится на сервер
+  actual-result: |
+    Запрос не оформляется с ошибкой failed status 500
+
+- summary: |
+    Нельзя закрыть окно с сообщением "Order placed successfully"
+  environment: |
+    Google Chrome 119.0.6045.124 (Официальная сборка), (64 бит)
+    ОС Windows 22H2 DevTools
+  steps-to-reproduce: |
+    1. Зайти на страницу https://hexlet-products-store.vercel.app/
+    2. Добавить любой товар в корзину
+    3. Перейти в корзину и нажать "Checkout"
+  expected-result: |
+    Высветившееся окно можно закрыть через крестик в правом верхнем углу
+  actual-result: |
+    Высветившееся окно нельзя закрыть через крестик в правом верхнем углу
